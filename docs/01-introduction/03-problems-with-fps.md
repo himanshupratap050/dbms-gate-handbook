@@ -19,12 +19,11 @@ According to **Korth, Silberschatz, Sudarshan** (*Database System Concepts*), ke
 ### Definition
 When the **same data is stored at multiple places/files**, it is called **Data Redundancy**.
 
-**Example:**  
-A student's name and address are stored in the **Fee, Library, and Examination files**.
+> **Example:** A student's name and address are stored in the **Fee, Library, and Examination files**.
 
-**Problem:**  
-→ Same data is unnecessarily repeated.  
-→ **Storage wastage** happens.
+### Consequence 
+- Same data is unnecessarily repeated.  
+- **Storage wastage** happens.
 
 ---
 
@@ -33,12 +32,11 @@ A student's name and address are stored in the **Fee, Library, and Examination f
 ### Definition
 When the **same data has different values at different places/files**, it is called **Data Inconsistency**.
 
-**Example:**  
-If a student's address is changed in the **Fee file** but not in the **Library file**, then both files contain different addresses.
+> **Example:** If a student's address is changed in the **Fee file** but not in the **Library file**, then both files contain different addresses.
 
-**Problem:**  
-→ Data becomes **incorrect/conflicting**.  
-→ Different files show **different values for the same data**.
+### Consequence 
+- Data becomes **incorrect/conflicting**.  
+- Different files show **different values for the same data**.
 
 ---
 

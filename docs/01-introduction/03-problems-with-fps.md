@@ -14,20 +14,35 @@ According to **Korth, Silberschatz, Sudarshan** (*Database System Concepts*), ke
 
 ---
 
-## 1. Data Redundancy and Inconsistency
+## 1. Data Redundancy
 
-### Explanation
-Since different application programs maintain their own files independently, the **same piece of data may be duplicated** across multiple files.
+### Definition
+When the **same data is stored at multiple places/files**, it is called **Data Redundancy**.
 
-> **Example:** A student's Name and Address might be stored separately in the Fee file, Library file, and Examination file.
+**Example:**  
+A student's name and address are stored in the **Fee, Library, and Examination files**.
 
-### Consequence
-- **Wasted storage space** due to duplication
-- **Data Inconsistency**: If the student's address changes, it must be updated in *every* file separately. If even one file is missed, the data becomes inconsistent — different files show different (conflicting) values for the same real-world fact.
+**Problem:**  
+→ Same data is unnecessarily repeated.  
+→ **Storage wastage** happens.
 
 ---
 
-## 2. Difficulty in Accessing Data
+## 2. Data Inconsistency
+
+### Definition
+When the **same data has different values at different places/files**, it is called **Data Inconsistency**.
+
+**Example:**  
+If a student's address is changed in the **Fee file** but not in the **Library file**, then both files contain different addresses.
+
+**Problem:**  
+→ Data becomes **incorrect/conflicting**.  
+→ Different files show **different values for the same data**.
+
+---
+
+## 3. Difficulty in Accessing Data
 
 ### Explanation
 FPS environments do not provide a general-purpose, flexible way to retrieve data. If a new type of data request arises that wasn't anticipated when the original programs were written, a **new application program must be written from scratch** to satisfy it.
@@ -40,7 +55,7 @@ FPS environments do not provide a general-purpose, flexible way to retrieve data
 
 ---
 
-## 3. Data Isolation
+## 4. Data Isolation
 
 ### Explanation
 Data is scattered across various files, and these files may be in **different formats**, written using different programs/languages. This makes it difficult to write new application programs that need to retrieve data from multiple sources together.
@@ -51,7 +66,7 @@ Data is scattered across various files, and these files may be in **different fo
 
 ---
 
-## 4. Integrity Problems
+## 5. Integrity Problems
 
 ### Explanation
 Data values stored in the database must often satisfy certain **consistency/integrity constraints**.
@@ -66,7 +81,7 @@ In FPS, such constraints are **not centrally enforced**. Instead, they must be h
 
 ---
 
-## 5. Atomicity Problems
+## 6. Atomicity Problems
 
 ### Explanation
 A computer system, like any mechanical/electrical device, is subject to failure (power failure, hardware crash, etc.). In such cases, it is essential that the data be restored to a consistent state.
@@ -84,7 +99,7 @@ A computer system, like any mechanical/electrical device, is subject to failure 
 
 ---
 
-## 6. Concurrent Access Anomalies
+## 7. Concurrent Access Anomalies
 
 ### Explanation
 When multiple users/programs access and update the same data **simultaneously**, without proper coordination, it can lead to **inconsistent results**.
@@ -97,7 +112,7 @@ When multiple users/programs access and update the same data **simultaneously**,
 
 ---
 
-## 7. Security Problems
+## 8. Security Problems
 
 ### Explanation
 Not every user of the system should be allowed to access all the data. For example, in a university system, payroll staff should not be able to access student examination results, and vice versa.
@@ -110,7 +125,7 @@ Since FPS has **no centralized access control**, security must be enforced **ind
 
 ---
 
-## 8. Lack of Flexibility / Data Dependence
+## 9. Lack of Flexibility / Data Dependence
 
 ### Explanation
 In FPS, application programs are tightly coupled to the **physical structure** of the files they use (field names, order, data types, storage format).
@@ -125,14 +140,15 @@ In FPS, application programs are tightly coupled to the **physical structure** o
 
 | # | Problem | Core Issue | Real-World Impact |
 |---|---|---|---|
-| 1 | Data Redundancy & Inconsistency | Same data stored in multiple files | Wasted space, conflicting data |
-| 2 | Difficulty in Accessing Data | No query language | New program needed for new requests |
-| 3 | Data Isolation | Data scattered in different formats | Hard to combine related data |
-| 4 | Integrity Problems | Constraints hardcoded per-program | Inconsistent/missed constraints |
-| 5 | Atomicity Problems | No all-or-nothing transaction guarantee | Data corruption on failure |
-| 6 | Concurrent Access Anomalies | No concurrency control | Lost updates, overbooking-type errors |
-| 7 | Security Problems | No centralized access control | Unauthorized data access |
-| 8 | Lack of Flexibility (Data Dependence) | Programs tied to physical file structure | Expensive maintenance on any change |
+| 1 | Data Redundancy | Same data stored in multiple files | Wasted storage space due to unnecessary duplication |
+| 2 | Data Inconsistency | Same data has different values in different files | Conflicting or incorrect data |
+| 3 | Difficulty in Accessing Data | No easy way to query or retrieve data | New program needed for new data requests |
+| 4 | Data Isolation | Data scattered across different files and formats | Difficult to combine and access related data |
+| 5 | Integrity Problems | Data constraints handled separately by programs | Constraints may be missed or applied inconsistently |
+| 6 | Atomicity Problems | No all-or-nothing transaction guarantee | Data may become incorrect if a failure occurs during an operation |
+| 7 | Concurrent Access Anomalies | No proper control over simultaneous data access | Lost updates and incorrect results may occur |
+| 8 | Security Problems | No centralized access control | Unauthorized users may access or modify data |
+| 9 | Lack of Flexibility (Data Dependence) | Programs depend on the physical file structure | Changes in file structure require program modifications |
 
 ---
 
